@@ -1,10 +1,9 @@
 package oo;
 
-
-import java.time.LocalDate;
-import java.util.Date;
-
 public class Object {
+    /**
+     * 챕터2, 객체 지향
+     */
     public static void main(String[] args) {
         Car car = new Car("아반떼", 100);
         car.move();
@@ -97,43 +96,43 @@ class Person {
 //}
 
 // 위의 방식을 이제 객체지향방식으로 변경해보자.
-class Member {
-    private String name;
-    private String benefit;
-    private String address;
-
-    public Member(String name, String benefit, String address) {
-        this.name = name;
-        this.benefit = benefit;
-        this.address = address;
-    }
-
-    // ... 생략
-
-    public boolean isVip() {
-        return "VIP".equals(benefit)
-                || "서울".equals(address);
-    }
-}
-
-// 캡슐화된 기능을 호출하는 모습
-// 이전과 다르게 VIP 조건이 변경되어도 수정할 일이 없다.
-class Order {
-    public void order(Member member) {
-        if (member.isVip()) {
-            System.out.println("배송비 3000원");
-        } else {
-            System.out.println("배송무료");
-        }
-    }
-}
-
-class Coupon {
-    public void xxCoupon(Member member) {
-        if (member.isVip()) {
-            System.out.println("쿠폰 2배 발급");
-        } else {
-            System.out.println("쿠폰 발급");
-        }
-    }
-}
+//class Member {
+//    private String name;
+//    private String benefit;
+//    private String address;
+//
+//    public Member(String name, String benefit, String address) {
+//        this.name = name;
+//        this.benefit = benefit;
+//        this.address = address;
+//    }
+//
+//    // ... 생략
+//
+//    public boolean isVip() {
+//        return "VIP".equals(benefit)
+//                || "서울".equals(address);
+//    }
+//}
+//
+//// 캡슐화된 기능을 호출하는 모습
+//// 이전과 다르게 VIP 조건이 변경되어도 수정할 일이 없다.
+//class Order {
+//    public void order(Member member) {
+//        if (member.isVip()) {
+//            System.out.println("배송비 3000원");
+//        } else {
+//            System.out.println("배송무료");
+//        }
+//    }
+//}
+//
+//class Coupon {
+//    public void xxCoupon(Member member) {
+//        if (member.isVip()) {
+//            System.out.println("쿠폰 2배 발급");
+//        } else {
+//            System.out.println("쿠폰 발급");
+//        }
+//    }
+//}
