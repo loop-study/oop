@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class SpringOfToby01 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new UserDao(new DConnectionMaker());
+        UserDao userDao = new DaoFactory().userDao();
 
         User user = new User();
         user.setId("loop");
