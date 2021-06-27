@@ -1,12 +1,27 @@
 package toby.springtoby01;
 
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.sql.*;
 
 public class UserDao {
     private ConnectionMaker connectionMaker;
 
+    // 의존관계 검색
+    public UserDao() {
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(DaoFactory.class);
+        this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
+    }
+
+    // 생성자 의존 주입
     public UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+
+    // 수정자 메소드 주입
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
 
@@ -44,6 +59,26 @@ public class UserDao {
         return user;
     }
 }
+
+/*
+// 자바 싱글톤 패턴
+public class UserDao {
+    private static UserDao INSTANCE;
+    private ConnectionMaker connectionMaker;
+
+    private UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+
+    public static synchronized UserDao getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new UerDao(??);
+        }
+        return INSTANCE;
+    }
+    ...
+}
+*/
 
 /*
 class NUserDao extends UserDao {
