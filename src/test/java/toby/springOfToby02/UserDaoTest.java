@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,15 +15,15 @@ import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.*;
 
-
+@RunWith(SpringJunit4ClassRunner.class)
+@ContextConfiguration(location="/test-applicationContext.xml")
 public class UserDaoTest {
-    // DAO는 같은걸 사용하니 인스턴스 변수로 선언한다.
+    @Autowired
+    private ApplicationContext context;
     private UserDao dao;
 
-    // @Test 메소드가 실행되기전에 @BeforeEach 실행된다.
     @BeforeAll
     public void setUp() {
-        ApplicationContext context = new GenericXmlApplicationContext("toby02/applicationContext.xml");
         dao = context.getBean("userDao", UserDao.class);
     }
 
