@@ -1,11 +1,15 @@
 package toby.springtoby01;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.sql.SQLException;
 
 public class SpringOfToby01 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new DaoFactory().userDao();
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
         user.setId("loop");
