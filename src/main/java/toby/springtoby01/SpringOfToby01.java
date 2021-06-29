@@ -1,14 +1,14 @@
 package toby.springtoby01;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
 public class SpringOfToby01 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(DaoFactory.class);
+        ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
         UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
