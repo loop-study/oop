@@ -1,14 +1,14 @@
-package toby.springtoby01;
+package toby.springtoby02;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
-public class SpringOfToby01 {
+public class SpringOfToby02 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ApplicationContext context = new GenericXmlApplicationContext("toby01/applicationContext.xml");
+        ApplicationContext context = new GenericXmlApplicationContext("toby02/applicationContext.xml");
 
         // 그 외 애플리케이션 컨텍스트
 //        new ClassPathXmlApplicationContext("daoContext.xml", UserDao.class);
