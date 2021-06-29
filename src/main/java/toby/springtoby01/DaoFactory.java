@@ -11,13 +11,13 @@ public class DaoFactory {
         return new UserDao(connectionMaker());
     }
 
-    public AccountDao accountDao() {
-        return new AccountDao(connectionMaker());
-    }
-
-    public MessageDao messageDao() {
-        return new MessageDao(connectionMaker());
-    }
+//    public AccountDao accountDao() {
+//        return new AccountDao(connectionMaker());
+//    }
+//
+//    public MessageDao messageDao() {
+//        return new MessageDao(connectionMaker());
+//    }
 
     @Bean
     public ConnectionMaker connectionMaker() {

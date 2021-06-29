@@ -9,6 +9,10 @@ public class SpringOfToby01 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+
+        // 그 외 애플리케이션 컨텍스트
+//        new ClassPathXmlApplicationContext("daoContext.xml", UserDao.class);
+
         UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
