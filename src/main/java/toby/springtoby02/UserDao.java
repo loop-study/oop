@@ -61,6 +61,16 @@ public class UserDao {
 
         return user;
     }
+
+    // 예제 흐름을 위한 삭제했다는 메서드
+    public void allDelete() {
+        System.out.println("모두 삭제함");
+    }
+
+    // 흐름용 임시 조회 메서드
+    public int getCount() {
+        return 0;
+    }
 }
 
 /*

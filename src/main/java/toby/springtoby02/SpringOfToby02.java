@@ -10,9 +10,6 @@ public class SpringOfToby02 {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         ApplicationContext context = new GenericXmlApplicationContext("toby02/applicationContext.xml");
 
-        // 그 외 애플리케이션 컨텍스트
-//        new ClassPathXmlApplicationContext("daoContext.xml", UserDao.class);
-
         UserDao userDao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
@@ -25,8 +22,12 @@ public class SpringOfToby02 {
         System.out.println(user.getId() + " 등록 성공");
 
         User user2 = userDao.get(user.getId());
-        System.out.println(user2.getName());
-        System.out.println(user2.getPassword());
-        System.out.println(user2.getId() + " 조회 성공");
+        if (!user.getName().equals(user2.getName())) {
+            System.out.println("테스트 실패 (name)");
+        } else if (!user.getPassword().equals(user2.getPassword())) {
+            System.out.println("테스트 실패 (password)");
+        } else {
+            System.out.println("조회 테스트 성공");
+        }
     }
 }
